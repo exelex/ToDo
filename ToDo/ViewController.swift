@@ -11,11 +11,16 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var dataItems: [ToDoItem] = [
         ToDoItem(text: "Задача1 dfad fsdf asfd dfasdfsdf sfsd dsfs", isChecked: false ),
-        ToDoItem(text: "Задача2", isChecked: false ),
+        ToDoItem(text: "Задача2", isChecked: true ),
         ToDoItem(text: "Задача3", isChecked: false ),
         ToDoItem(text: "Задача4", isChecked: false ),
         ToDoItem(text: "Задача5", isChecked: false )
-    ] 
+    ]
+    
+    func changeStatus(at item: Int) {
+        dataItems[item].isChecked = !(dataItems[item].isChecked)
+        print(dataItems[item].isChecked)
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,7 +45,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.deselectRow(at: indexPath, animated: true)
+        changeStatus(at: indexPath.row)
     }
     
     

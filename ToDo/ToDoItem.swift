@@ -10,5 +10,5 @@ import Foundation
 
 struct ToDoItem {
     let text: String
-    let isChecked: Bool
+    var isChecked: Bool
 }
