@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         ToDoItem(text: "Задача3", isChecked: false ),
         ToDoItem(text: "Задача4", isChecked: false ),
         ToDoItem(text: "Задача5", isChecked: false )
-    ]
+    ] 
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
