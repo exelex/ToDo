@@ -14,14 +14,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         ToDoItem(text: "Задача2", isChecked: true ),
         ToDoItem(text: "Задача3", isChecked: false ),
         ToDoItem(text: "Задача4", isChecked: false ),
+        ToDoItem(text: "Задача4", isChecked: false ),
+        ToDoItem(text: "Задача4", isChecked: false ),
+        ToDoItem(text: "Задача4", isChecked: false ),
+        ToDoItem(text: "Задача4", isChecked: false ),
+        ToDoItem(text: "Задача4", isChecked: false ),
+        ToDoItem(text: "Задача4", isChecked: false ),
+        ToDoItem(text: "Задача4", isChecked: false ),
+        ToDoItem(text: "Задача4", isChecked: false ),
+        ToDoItem(text: "Задача4", isChecked: false ),
         ToDoItem(text: "Задача5", isChecked: false )
     ]
     
-    func changeStatus(at item: Int) {
+    func changeStatus(at item: Int)  -> Bool {
         dataItems[item].isChecked = !(dataItems[item].isChecked)
         print(dataItems[item].isChecked)
+        return dataItems[item].isChecked
     }
     
+    @IBAction func buttonOpenModal(_ sender: Any) {
+        let modalEdit = EditViewController()
+        self.present(modalEdit, animated: true, completion: nil)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataItems.count
@@ -32,21 +46,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! ToDoCell
 
-        
-        cell.checkbox.layer.borderWidth = 2
-    
-        cell.checkbox.layer.borderColor = ColorSheme.checkboxBorderColor.cgColor
-//        cell.checkbox.layer.borderColor = UIColor(red: 0.889415, green: 0.889436, blue:0.889424, alpha: 1.0 ).cgColor
-        cell.checkbox.layer.cornerRadius = 14
         cell.checkbox.backgroundColor = UIColor.white
+        cell.checkbox.layer.cornerRadius = 14
+        cell.checkbox.setImage(UIImage(named: "uncheck"), for: .normal)
+        
+        
+        
         cell.itemText.text = dataItems[indexPath.row].text
+        
+        if (dataItems[indexPath.row].isChecked == true) {
+            cell.checkbox.setImage(UIImage(named: "check"), for: .normal)
+        } else {
+            cell.checkbox.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
         
         return cell
     }
     
+
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        changeStatus(at: indexPath.row)
+        let cell = tableView.cellForRow(at: indexPath) as! ToDoCell
+        
+    
+        let item = self.tableView.cellForRow(at: indexPath)
+        
+    
+        
+        if changeStatus(at: indexPath.row) {
+            cell.checkbox.setImage(UIImage(named: "check"), for: .normal)
+        } else {
+            cell.checkbox.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+        
+//        tableView.reloadData()
     }
     
     
