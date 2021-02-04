@@ -17,8 +17,8 @@
 		D059E61F25C3723D003AE15C /* ToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D059E61E25C3723D003AE15C /* ToDoUITests.swift */; };
 		D05DF93F25C61ABA00F5D283 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05DF93E25C61ABA00F5D283 /* ToDoItem.swift */; };
 		D05DF94125C76F1600F5D283 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05DF94025C76F1600F5D283 /* ToDoCell.swift */; };
+		D09D32A825CB60D10023290C /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09D32A725CB60D10023290C /* EditViewController.swift */; };
 		D0B28ACB25C880BB00262110 /* ColorSheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B28ACA25C880BB00262110 /* ColorSheme.swift */; };
-		D0E260A525CB532F00E16730 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E260A425CB532F00E16730 /* EditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +55,8 @@
 		D059E62025C3723D003AE15C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D05DF93E25C61ABA00F5D283 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		D05DF94025C76F1600F5D283 /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
+		D09D32A725CB60D10023290C /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		D0B28ACA25C880BB00262110 /* ColorSheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorSheme.swift; path = ToDo/ColorSheme.swift; sourceTree = SOURCE_ROOT; };
-		D0E260A425CB532F00E16730 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,7 @@
 				D059E60025C37238003AE15C /* ViewController.swift */,
 				D05DF93E25C61ABA00F5D283 /* ToDoItem.swift */,
 				D059E60225C37238003AE15C /* Main.storyboard */,
-				D0E260A425CB532F00E16730 /* EditViewController.swift */,
+				D09D32A725CB60D10023290C /* EditViewController.swift */,
 				D059E60725C3723C003AE15C /* LaunchScreen.storyboard */,
 				D059E60A25C3723C003AE15C /* Info.plist */,
 				D059E60525C3723C003AE15C /* Assets.xcassets */,
@@ -277,7 +277,7 @@
 				D05DF93F25C61ABA00F5D283 /* ToDoItem.swift in Sources */,
 				D059E5FF25C37238003AE15C /* SceneDelegate.swift in Sources */,
 				D05DF94125C76F1600F5D283 /* ToDoCell.swift in Sources */,
-				D0E260A525CB532F00E16730 /* EditViewController.swift in Sources */,
+				D09D32A825CB60D10023290C /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

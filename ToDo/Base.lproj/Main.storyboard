@@ -81,17 +81,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="a8h-JZ-MWi"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UgJ-Fg-c8y">
-                                <rect key="frame" x="113" y="693" width="149" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.42352941179999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Open modal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonOpenModal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FuU-KD-bYy"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -114,20 +103,36 @@
             </objects>
             <point key="canvasLocation" x="1040.8" y="136.69950738916256"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="pre-vk-djV">
+        <!--Edit View Controller-->
+        <scene sceneID="DSE-ez-h6j">
             <objects>
-                <viewController id="456-i3-dXZ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Avg-yn-gJ8">
+                <viewController storyboardIdentifier="EditViewController" modalPresentationStyle="pageSheet" id="7z2-sS-V1D" customClass="EditViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5w3-2U-aGR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="lKz-OM-yEL"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yv-2X-XWP">
+                                <rect key="frame" x="137.66666666666666" y="371.66666666666669" width="100" height="69"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="57"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="W9y-Em-DEs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Yv-2X-XWP" firstAttribute="centerX" secondItem="5w3-2U-aGR" secondAttribute="centerX" id="HWk-V9-0tZ"/>
+                            <constraint firstItem="9Yv-2X-XWP" firstAttribute="centerY" secondItem="5w3-2U-aGR" secondAttribute="centerY" id="QFZ-r5-USI"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Tue-tA-BM8"/>
+                    <connections>
+                        <outlet property="labelText" destination="9Yv-2X-XWP" id="y9D-E6-lif"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kaf-W2-bdi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N0W-mn-bIE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1881" y="138"/>
+            <point key="canvasLocation" x="1858" y="137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4cr-C2-a5p">

@@ -32,10 +32,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return dataItems[item].isChecked
     }
     
-    @IBAction func buttonOpenModal(_ sender: Any) {
-        let modalEdit = EditViewController()
-        self.present(modalEdit, animated: true, completion: nil)
-    }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataItems.count
@@ -69,11 +67,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.deselectRow(at: indexPath, animated: true)
         let cell = tableView.cellForRow(at: indexPath) as! ToDoCell
         
-    
-        let item = self.tableView.cellForRow(at: indexPath)
-        
-    
-        
         if changeStatus(at: indexPath.row) {
             cell.checkbox.setImage(UIImage(named: "check"), for: .normal)
         } else {
@@ -81,6 +74,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
 //        tableView.reloadData()
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let contextItemEdit = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let modalEdit = storyboard.instantiateViewController(identifier: "EditViewController")
+            
+            modalEdit.modalPresentationStyle = .pageSheet
+            modalEdit.modalTransitionStyle = .coverVertical
+            
+            
+            
+            self.present(modalEdit, animated: true, completion: nil)
+        }
+        
+        contextItemEdit.backgroundColor = ColorSheme.swipeActionGreen
+        
+        let contextItemDelete = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+            //Code I want to do here
+        }
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItemDelete, contextItemEdit])
+
+        return swipeActions
     }
     
     

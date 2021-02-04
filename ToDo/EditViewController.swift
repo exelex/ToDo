@@ -10,9 +10,12 @@ import UIKit
 
 class EditViewController: UIViewController {
 
+    @IBOutlet weak var labelText: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
+//        view.backgroundColor  = .white
+        print("open edit modal")
         // Do any additional setup after loading the view.
     }
     
