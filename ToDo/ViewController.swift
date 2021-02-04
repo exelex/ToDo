@@ -79,12 +79,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        let cell = tableView.cellForRow(at: indexPath) as! TodoCell
         let contextItemEdit = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let modalEdit = storyboard.instantiateViewController(identifier: "EditViewController")
+            let modalEdit = storyboard.instantiateViewController(identifier: "EditViewController") as! EditViewController
             
             modalEdit.modalPresentationStyle = .pageSheet
             modalEdit.modalTransitionStyle = .coverVertical
+            
+//            let dest = storyboard?.instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
+            
+            modalEdit.imageName = self.dataItems[indexPath.row].text
             
             
             
@@ -100,6 +105,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItemDelete, contextItemEdit])
 
         return swipeActions
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
     
     

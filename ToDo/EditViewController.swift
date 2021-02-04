@@ -12,8 +12,15 @@ class EditViewController: UIViewController {
 
     @IBOutlet weak var labelText: UILabel!
     
+    var imageName: String = ""
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        labelText.text = "Img name \(imageName)"
+        
 //        view.backgroundColor  = .white
         print("open edit modal")
         // Do any additional setup after loading the view.
