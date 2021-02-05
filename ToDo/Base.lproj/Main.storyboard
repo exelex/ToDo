@@ -28,7 +28,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kh-f4-EPM">
                                         <rect key="frame" x="177" y="0.0" width="122" height="39.666666666666664"/>
-                                        <state key="normal" image="more"/>
+                                        <state key="normal" image="plus"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -170,7 +170,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="more" width="24" height="24"/>
+        <image name="plus" width="24" height="24"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

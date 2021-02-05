@@ -96,7 +96,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         contextItemEdit.backgroundColor = ColorSheme.swipeActionGreen
         
         let contextItemDelete = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
-            //Code I want to do here
+            self.dataItems.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItemDelete, contextItemEdit])
