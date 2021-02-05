@@ -28,11 +28,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func changeStatus(at item: Int)  -> Bool {
         dataItems[item].isChecked = !(dataItems[item].isChecked)
-        print(dataItems[item].isChecked)
         return dataItems[item].isChecked
     }
     
-    
+    func editItem(item: Int, text: String) {
+        dataItems[item].text = text
+        tableView.reloadData()
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,14 +74,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             cell.checkbox.setImage(UIImage(named: "uncheck"), for: .normal)
         }
-        
-//        tableView.reloadData()
     }
     
     
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let cell = tableView.cellForRow(at: indexPath) as! TodoCell
+
         let contextItemEdit = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let modalEdit = storyboard.instantiateViewController(identifier: "EditViewController") as! EditViewController
@@ -87,11 +87,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             modalEdit.modalPresentationStyle = .pageSheet
             modalEdit.modalTransitionStyle = .coverVertical
             
-//            let dest = storyboard?.instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
-            
-            modalEdit.imageName = self.dataItems[indexPath.row].text
-            
-            
+            modalEdit.itemID = indexPath.row
+            modalEdit.itemText = self.dataItems[indexPath.row].text
             
             self.present(modalEdit, animated: true, completion: nil)
         }
@@ -107,13 +104,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return swipeActions
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(gotNotification(notification:)), name: kNotifNextViewControllerCallback, object: nil)
+    }
+
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func gotNotification(notification: Notification) {
+//        let notificationText = notification.userInfo
+        guard let userInfo = notification.userInfo else {return}
+        if let editResultText = userInfo["text"] {
+            
+            if let editResultId = userInfo["id"] {
+                editItem(item: editResultId as! Int, text: editResultText as! String)
+            }
+        }
+        
+        
+        
         
     }
     

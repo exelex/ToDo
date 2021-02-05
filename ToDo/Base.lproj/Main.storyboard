@@ -111,28 +111,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yv-2X-XWP">
-                                <rect key="frame" x="158.33333333333334" y="386.33333333333331" width="58.666666666666657" height="39.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="text edit" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vid-Lo-n2L">
+                                <rect key="frame" x="0.0" y="113" width="375" height="699"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZA-2e-b7k">
+                                <rect key="frame" x="301" y="66" width="50" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="22"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="editViewDone:" destination="7z2-sS-V1D" eventType="touchUpInside" id="0BE-Fk-brg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaX-uS-xBO">
+                                <rect key="frame" x="20" y="64" width="61" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="22"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="editViewCancel:" destination="7z2-sS-V1D" eventType="touchUpInside" id="jgY-zt-fms"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="W9y-Em-DEs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="9Yv-2X-XWP" firstAttribute="centerX" secondItem="5w3-2U-aGR" secondAttribute="centerX" id="HWk-V9-0tZ"/>
-                            <constraint firstItem="9Yv-2X-XWP" firstAttribute="centerY" secondItem="5w3-2U-aGR" secondAttribute="centerY" id="QFZ-r5-USI"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Tue-tA-BM8"/>
                     <connections>
-                        <outlet property="labelText" destination="9Yv-2X-XWP" id="y9D-E6-lif"/>
+                        <outlet property="textEdit" destination="Vid-Lo-n2L" id="DCa-w0-2WH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N0W-mn-bIE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1858" y="137"/>
+            <point key="canvasLocation" x="1856.8" y="136.69950738916256"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4cr-C2-a5p">
@@ -155,6 +171,9 @@
     </scenes>
     <resources>
         <image name="more" width="24" height="24"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -8,33 +8,48 @@
 
 import UIKit
 
-class EditViewController: UIViewController {
+let kNotifNextViewControllerCallback = NSNotification.Name(rawValue: "kNotifNextViewControllerCallback")
 
-    @IBOutlet weak var labelText: UILabel!
+
+class EditViewController: UIViewController {
     
-    var imageName: String = ""
+    @IBOutlet weak var textEdit: UITextView!
+    
+    var itemText: String = ""
+    var itemID: Int = 0
+    lazy var itemTextEdit: String = textEdit.text
+    
+    
+    lazy var editData = ["text": itemTextEdit, "id": itemID] as [String : Any]
+
+    func editResult() {
+        NotificationCenter.default.post(name: kNotifNextViewControllerCallback, object: "notification text", userInfo: editData)
+    }
+    
+    @IBAction func editViewCancel(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func editViewDone(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+        editResult()
+    }
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        labelText.text = "Img name \(imageName)"
+        textEdit.text = itemText
         
-//        view.backgroundColor  = .white
-        print("open edit modal")
-        // Do any additional setup after loading the view.
+        // показ клавиатуры
+        textEdit.isUserInteractionEnabled = true // удалены пользовательские события
+        textEdit.becomeFirstResponder()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+
+
