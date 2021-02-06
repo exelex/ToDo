@@ -29,6 +29,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kh-f4-EPM">
                                         <rect key="frame" x="177" y="0.0" width="122" height="39.666666666666664"/>
                                         <state key="normal" image="plus"/>
+                                        <connections>
+                                            <action selector="addItemBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h7c-lE-WaI"/>
+                                            <segue destination="5hG-2A-faV" kind="presentation" identifier="addSegue" id="cdS-mC-wIV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -111,35 +115,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="text edit" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vid-Lo-n2L">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="text edit" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vid-Lo-n2L">
                                 <rect key="frame" x="0.0" y="113" width="375" height="699"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZA-2e-b7k">
-                                <rect key="frame" x="301" y="66" width="50" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="22"/>
-                                <state key="normal" title="Done"/>
-                                <connections>
-                                    <action selector="editViewDone:" destination="7z2-sS-V1D" eventType="touchUpInside" id="0BE-Fk-brg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaX-uS-xBO">
-                                <rect key="frame" x="20" y="64" width="61" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="22"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="editViewCancel:" destination="7z2-sS-V1D" eventType="touchUpInside" id="jgY-zt-fms"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="220" translatesAutoresizingMaskIntoConstraints="NO" id="uXr-cR-oKa">
+                                <rect key="frame" x="20" y="64" width="331" height="39"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaX-uS-xBO">
+                                        <rect key="frame" x="0.0" y="0.0" width="61" height="39"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="22"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="editViewCancel:" destination="7z2-sS-V1D" eventType="touchUpInside" id="jgY-zt-fms"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZA-2e-b7k">
+                                        <rect key="frame" x="281" y="0.0" width="50" height="39"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="22"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="editViewDone:" destination="7z2-sS-V1D" eventType="touchUpInside" id="0BE-Fk-brg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="W9y-Em-DEs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Vid-Lo-n2L" firstAttribute="top" secondItem="uXr-cR-oKa" secondAttribute="bottom" constant="10" id="0Xa-0h-Cmb"/>
+                            <constraint firstItem="Vid-Lo-n2L" firstAttribute="centerX" secondItem="5w3-2U-aGR" secondAttribute="centerX" id="0Ze-4e-RvY"/>
+                            <constraint firstItem="W9y-Em-DEs" firstAttribute="trailing" secondItem="uXr-cR-oKa" secondAttribute="trailing" constant="24" id="DUH-aO-DAm"/>
+                            <constraint firstItem="uXr-cR-oKa" firstAttribute="leading" secondItem="W9y-Em-DEs" secondAttribute="leading" constant="20" id="R5U-0g-ZL4"/>
+                            <constraint firstItem="Vid-Lo-n2L" firstAttribute="leading" secondItem="W9y-Em-DEs" secondAttribute="leading" id="X4V-Vj-gE4"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Vid-Lo-n2L" secondAttribute="bottom" constant="-34" id="aGq-Pc-upI"/>
+                            <constraint firstItem="uXr-cR-oKa" firstAttribute="top" secondItem="W9y-Em-DEs" secondAttribute="top" constant="20" id="ueN-vB-pyR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Tue-tA-BM8"/>
                     <connections>
@@ -149,6 +164,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N0W-mn-bIE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1856.8" y="136.69950738916256"/>
+        </scene>
+        <!--Add Item View Controller-->
+        <scene sceneID="6hE-ht-LmQ">
+            <objects>
+                <viewController storyboardIdentifier="AddItemViewController" id="5hG-2A-faV" customClass="AddItemViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YgY-9J-hmD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="220" translatesAutoresizingMaskIntoConstraints="NO" id="hcf-ND-tzF">
+                                <rect key="frame" x="20" y="26" width="331" height="39"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXo-FX-iVk">
+                                        <rect key="frame" x="0.0" y="0.0" width="61" height="39"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="22"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelBtn:" destination="5hG-2A-faV" eventType="touchUpInside" id="APA-8S-Fvl"/>
+                                            <action selector="editViewCancel:" destination="7z2-sS-V1D" eventType="touchUpInside" id="1rk-kF-uw1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCA-kz-Xh9">
+                                        <rect key="frame" x="281" y="0.0" width="50" height="39"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="22"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="editViewDone:" destination="7z2-sS-V1D" eventType="touchUpInside" id="TY2-uc-XaB"/>
+                                            <action selector="saveBtn:" destination="5hG-2A-faV" eventType="touchUpInside" id="E1K-dZ-h6x"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nGP-1U-oDX">
+                                <rect key="frame" x="0.0" y="75" width="375" height="628"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fmd-jc-9gF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fmd-jc-9gF" firstAttribute="bottom" secondItem="nGP-1U-oDX" secondAttribute="bottom" constant="21" id="0yo-zv-wYu"/>
+                            <constraint firstItem="fmd-jc-9gF" firstAttribute="trailing" secondItem="nGP-1U-oDX" secondAttribute="trailing" id="8je-4K-kZZ"/>
+                            <constraint firstItem="nGP-1U-oDX" firstAttribute="leading" secondItem="fmd-jc-9gF" secondAttribute="leading" id="TFE-40-y3m"/>
+                            <constraint firstItem="hcf-ND-tzF" firstAttribute="leading" secondItem="fmd-jc-9gF" secondAttribute="leading" constant="20" id="XCT-gV-0ZM"/>
+                            <constraint firstItem="nGP-1U-oDX" firstAttribute="top" secondItem="hcf-ND-tzF" secondAttribute="bottom" constant="10" id="a3w-b8-AZq"/>
+                            <constraint firstItem="fmd-jc-9gF" firstAttribute="trailing" secondItem="hcf-ND-tzF" secondAttribute="trailing" constant="24" id="dAa-pv-0BS"/>
+                            <constraint firstItem="hcf-ND-tzF" firstAttribute="top" secondItem="fmd-jc-9gF" secondAttribute="top" constant="26" id="fos-Yp-Wdb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textEdit" destination="nGP-1U-oDX" id="gbZ-QI-CKC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AxO-Cu-d3B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1041" y="840"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4cr-C2-a5p">

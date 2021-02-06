@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MyDataSendingDelegateProtocol {
+    
     var dataItems: [ToDoItem] = [
-        ToDoItem(text: "Задача1 dfad fsdf asfd dfasdfsdf sfsd dsfs", isChecked: false ),
+        ToDoItem(text: "Задача1", isChecked: false ),
         ToDoItem(text: "Задача2", isChecked: true ),
         ToDoItem(text: "Задача3", isChecked: false ),
         ToDoItem(text: "Задача4", isChecked: false ),
@@ -34,6 +35,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func editItem(item: Int, text: String) {
         dataItems[item].text = text
         tableView.reloadData()
+    }
+    
+    func addItem(text: String) {
+        let item = ToDoItem(text: text, isChecked: false)
+        dataItems.append(item)
+
+        tableView.reloadData()
+    }
+    
+    
+    @IBAction func addItemBtn(_ sender: Any) {
+        
     }
     
     
@@ -68,6 +81,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let cell = tableView.cellForRow(at: indexPath) as! ToDoCell
+        
         
         if changeStatus(at: indexPath.row) {
             cell.checkbox.setImage(UIImage(named: "check"), for: .normal)
@@ -119,7 +133,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc func gotNotification(notification: Notification) {
-//        let notificationText = notification.userInfo
         guard let userInfo = notification.userInfo else {return}
         if let editResultText = userInfo["text"] {
             
@@ -127,12 +140,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 editItem(item: editResultId as! Int, text: editResultText as! String)
             }
         }
-        
-        
-        
-        
     }
     
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addSegue" {
+            let secondVC: AddItemViewController = segue.destination as! AddItemViewController
+            secondVC.delegate = self
+        }
+    }
+    
+    func addItemDelegate(text: String) {
+        addItem(text: text)
+    }
     
 }
 
