@@ -37,7 +37,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rC5-8T-SoA">
-                                <rect key="frame" x="0.0" y="175.66666666666666" width="375" height="460.66666666666674"/>
+                                <rect key="frame" x="0.0" y="175.66666666666669" width="375" height="636.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="separatorInset" minX="60" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -92,9 +92,11 @@
                             <constraint firstItem="5Fb-VR-uzo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="Nh8-aa-z9d"/>
                             <constraint firstItem="rC5-8T-SoA" firstAttribute="top" secondItem="5Fb-VR-uzo" secondAttribute="bottom" constant="20" id="Wkh-CL-I8G"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rC5-8T-SoA" secondAttribute="trailing" id="aZv-Rn-Hdt"/>
+                            <constraint firstItem="rC5-8T-SoA" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="ddt-EX-fPs"/>
                             <constraint firstItem="rC5-8T-SoA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="g7u-BW-Gwg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Fb-VR-uzo" secondAttribute="trailing" constant="16" id="gVE-Ij-ODx"/>
                             <constraint firstItem="rC5-8T-SoA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hFN-Nk-wP4"/>
+                            <constraint firstItem="rC5-8T-SoA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="87.666666666666686" id="vsP-HV-bC0"/>
                             <constraint firstItem="5Fb-VR-uzo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="28" id="zW9-lk-361"/>
                         </constraints>
                     </view>
